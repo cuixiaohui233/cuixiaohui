@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<style type="text/css">
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+ul{
+	position:relative;
+	margin-top:100px;
+	overflow: hidden;
+	height:70px;
+}
+li{
+	position: relative;
+	top: 0;
+	left: 0;
+	float: left;
+}
+img{
+	display: block;
+	border:none;
+	vertical-align: top;
+}
+
+</style>
+<body>
+	<ul id="oUl">
+		<li>
+			<img src="images/0.jpg"/>
+			<img src="images/0.jpg"/>
+		</li>
+		<li>
+			<img src="images/0.jpg"/>
+			<img src="images/0.jpg"/>
+		</li>
+		
+		<li>
+			<img src="images/c.jpg"/>
+		</li>
+		
+		<li>
+			<img src="images/0.jpg"/>
+			<img src="images/0.jpg"/>
+		</li>
+		<li>
+			<img src="images/0.jpg"/>
+			<img src="images/0.jpg"/>
+		</li>
+		<li>
+			<img src="images/c.jpg"/>
+		</li>
+		<li>
+			<img src="images/0.jpg"/>
+			<img src="images/0.jpg"/>
+		</li>
+		<li>
+			<img src="images/0.jpg"/>
+			<img src="images/0.jpg"/>
+		</li>
+	</ul>
+</body>
+<script type="text/javascript" src="Mtween.js">
+	
+</script>
+<script type="text/javascript">
+	var lis = document.getElementsByTagName('li');
+	//初始化
+	var old = getTime();
+	//console.log(old)
+	for(var i=0;i<lis.length;i++){
+		if(i==2||i==5){
+			continue;//跳过那个两个点儿
+		}
+		lis[i].getElementsByTagName('img')[0].src = 'images/'+old[i]+'.jpg';
+	}
+	setInterval(function(){
+		var now = getTime();
+		//上一秒，当前时间字符串逐位对比
+		for(var i=0;i<now.length;i++){
+			//哪一位不一样，这一位要执行翻页效果，i就是不一样那位，新数字是now[i]
+			if(old[i]!=now[i]){
+				//不一样的那位，执行翻页效果函数
+				tab(i,now[i]);
+//				console.log(old)
+//				console.log(now)
+//				console.log(i,now[i])
+			}
+		}
+		//让旧时间等于新时间，这样不会一直跳
+		old = now;
+	},1000)
+	//i,哪一位要翻页（对比之后不一样的那一位），num新数字（不一样那一位的数字）
+	function tab(i,num){
+		var li = lis[i];
+		var imgs = li.getElementsByTagName('img');
+		imgs[1].src = 'images/'+num+'.jpg';
+		move({
+			obj:li,
+			attrs:{top:-70},
+			//翻页运动的时间必须小于1000
+			duration:800,
+			callBack:function(){
+				imgs[0].src = 'images/'+num+'.jpg';
+				lis[i].style.cssText = '';
+			}
+		})
+	}
+	
+	function getTime(){
+		var date = new Date();
+		var h = date.getHours();
+		var m = date.getMinutes();
+		var s = date.getSeconds();
+		var str = '';
+		str = two(h)+':'+two(m)+':'+two(s);
+		//补0函数,时间小于10，一般都是01，02，所以需要补0
+		function two(n){
+			return n<10?'0'+n:''+n;
+		}
+		return str;
+	}
+</script>
+</html>

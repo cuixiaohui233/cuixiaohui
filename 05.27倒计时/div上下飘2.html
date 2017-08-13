@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 50px;
+				height: 50px;
+				background: red;
+				position: absolute;
+				top:50px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" id="btn" value="按钮" />
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script type="text/javascript" src="Mtween.js">
+			
+</script>
+<script type="text/javascript">
+var btn = document.getElementById('btn');
+var divs = document.getElementsByTagName('div');
+//控制运动没结束时，不可以重复运动
+var onOff2 = true;
+var timer = null;
+//点击向左的
+var n = 0;
+//点击向右的
+var m = 0;
+for(var i=0;i<divs.length;i++){
+	divs[i].style.left = i*60+'px';
+	//true:400,false:50，所有div都是true或者都是false，证明都运动完了
+	divs[i].onOff = true;
+	//要知道点的哪个，左右分别依次运动，用索引值
+	divs[i].index = i;
+	divs[i].onclick = function(){
+		if(onOff2){
+			onOff2 = false;
+			//点击的那个先动
+			move({
+				obj:this,
+				attrs:{
+					top:this.onOff?400:50
+				},
+				duration:500,
+				callBack:function(){
+					this.onOff = !this.onOff;
+				}
+			})
+			n = this.index;//现在n是点击的那个
+			m = this.index;//m也是点击的那个
+			//开启定时器，左右依次运动
+			timer = setInterval(function(){
+				//n--向左
+				n--;
+				//m++向右
+				m++;
+				//console.log(n,m)
+				//如果n比0小同时m比最后一位大，所有都加上运动了，可以关闭定时器
+				if(n<0&&m>divs.length-1){
+					clearInterval(timer);
+				}
+				//限制，n,m在divs的下标取值范围内，给div加运动，不然会报错
+				if(n>=0){
+					move({
+						obj:divs[n],
+						attrs:{
+							top:divs[n].onOff?400:50
+						},
+						duration:500,
+						callBack:function(){
+							this.onOff = !this.onOff;
+							//判断所有div都运动完，打开onOff2=true,可以再次运动
+							var num = 0;
+							for(var i=0;i<divs.length;i++){
+								if(divs[i].onOff){
+									num++;
+								}
+							}
+							//div所有开关都为true或者都为false，证明全运动完了
+							if(num==0||num==divs.length){
+								onOff2 = true;
+							}
+						}
+					})
+				}
+				//同上
+				if(m<=divs.length-1){
+					move({
+						obj:divs[m],
+						attrs:{
+							top:divs[m].onOff?400:50
+						},
+						duration:500,
+						callBack:function(){
+							this.onOff = !this.onOff;
+							var num = 0;
+							for(var i=0;i<divs.length;i++){
+								if(divs[i].onOff){
+									num++;
+								}
+							}
+							if(num==0||num==divs.length){
+								onOff2 = true;
+							}
+						}
+					})
+				}
+			},200)
+		}
+	}
+}
+</script>
+	</body>
+</html>

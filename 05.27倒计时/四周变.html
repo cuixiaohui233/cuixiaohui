@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width:500px;
+				height: 500px;
+				margin:0 auto;
+			}
+			#box div{
+				width:50px;
+				height:50px;
+				/* background:red; */
+				/* border-radius: 50px; */
+				float:left;/*
+				margin-right: 5px;
+				margin-bottom: 5px;*/
+				line-height: 50px;
+				text-align:center;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="box"></div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			var arr = ['img/0.jpg','img/1.jpg','img/2.jpg','img/3.jpg','img/4.jpg'];
+			var str = '';
+			var n =0;
+			for(var i=0;i<100;i++){
+				str += '<div style="background-image:url('+arr[n]+');background-position:'+-i%10*50+'px '+-Math.floor(i/10)*50+'px;"></div>';
+			}
+			box.innerHTML = str;
+			var divs = box.getElementsByTagName('div');
+			for(var i=0;i<divs.length;i++){
+				divs[i].index = i;
+				divs[i].off = true;
+				divs[i].onclick = function(){
+					n++;
+					if(n>arr.length-1){
+						n=0;
+					}
+					fn(this.index);
+				}
+			}
+			function fn(index){
+				if(!divs[index].off){
+					return;
+				}
+				//divs[index].style.background = 'blue';
+				divs[index].style.backgroundImage = 'url('+arr[n]+')';
+				divs[index].off = false;
+				setTimeout(function(){
+					checkAll();
+				},2000)
+				//左
+				if(Math.floor(index/10)==Math.floor((index-1)/10)){
+					setTimeout(function(){
+						fn(index-1);
+					},100)	
+				}
+				//右
+				if(Math.floor(index/10)==Math.floor((index+1)/10)){
+					setTimeout(function(){
+						fn(index+1);
+					},100)
+				}
+				//上
+				if(index-10>=0){
+					setTimeout(function(){
+						fn(index-10);
+					},100)
+				}
+				//下
+				if(index+10<divs.length){
+					setTimeout(function(){
+						fn(index+10);
+					},100)
+				}
+			}
+			function checkAll(){
+				var m = 0;
+				for(var i=0;i<divs.length;i++){
+					if(!divs[i].off){
+						m++;
+					}
+				}
+				if(m == divs.length){
+					for(var i=0;i<divs.length;i++){
+						divs[i].off = true;
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

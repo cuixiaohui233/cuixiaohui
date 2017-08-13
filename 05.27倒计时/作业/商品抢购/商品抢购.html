@@ -1,0 +1,391 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>抢购商品</title>
+<style>
+body, ul, ol, p, h3, input {
+	padding:0;
+	margin:0;
+	font-size:12px;
+}
+li {
+	list-style:none;
+}
+b, em {
+	font-style:normal;
+}
+img {
+	border:none;
+}
+.box {
+	padding:10px;
+	width:648px;
+	margin:30px auto;
+	border:1px solid #ccc;
+}
+.h3s {
+	height:28px;
+	line-height:28px;
+	border-bottom:2px solid #9e9e9e;
+	color:#6e6e6e;
+	font-size:14px;
+}
+.h3s span {
+	padding-left:20px;
+	font-size:14px;
+	font-weight:normal;
+}
+.con {
+	width:648px;
+	height:280px;
+	overflow:hidden;
+	position:relative;
+	background:url(img/none.jpg) 0 0 repeat no-repeat;
+}
+.none {
+	width:325px;
+	height:280px;
+	position:absolute;
+	left:0;
+	top:0;
+	
+	display:none;
+	z-index:10;
+}
+.box ul {
+	height:280px;
+}
+.box ul li {
+	width:162px;
+	height:280px;
+	float:left;
+	position:relative;
+	left: 0;
+	top: 0;
+}
+.goods {
+	width:151px;
+	height:264px;
+	border-right:2px solid #f2f2f2;
+	padding:5px 0 10px 9px;
+	position:absolute;
+	left:0;
+	top:0;
+	background-color: white;
+}
+.dinput {
+	width:151px;
+	height:21px;
+	margin-bottom:15px;
+}
+.txt {
+	width:110px;
+	height:19px;
+	line-height:19px;
+	background-color:#dadada;
+	border:1px solid #f2f2f2;
+	color:#323232;
+	float:left;
+}
+.btn {
+	float:left;
+	cursor:pointer;
+}
+.remtime {
+	width:143px;
+	padding-left:8px;
+	height:16px;
+	line-height:16px;
+	overflow:hidden;
+	margin-bottom:14px;
+	color:black;
+	display:block;
+	font-weight: bold;
+}
+.dimg {
+	width:120px;
+	height:117px;
+	padding:18px 10px 14px 10px;
+	position:relative;
+}
+.dimg b {
+	position:absolute;
+	width:48px;
+	height:36px;
+	padding-top:12px;
+	right:0;
+	top:0;
+	/* background:url(img/b.png) 0 0 no-repeat; */
+	text-align:center;
+	color:#fff;
+}
+.dimg b span {
+	font-size:20px;
+	display:block;
+	height:20px;
+}
+.dps {
+	width:145px;
+	height:32px;
+	line-height:16px;
+	color:#6e6e6e;
+	overflow:hidden;
+}
+.price {
+	width:145px;
+	height:16px;
+	line-height:16px;
+	color:#c0c0c0;
+}
+.price em {
+	font-style:normal;
+	color:#b9003d;
+}
+.detail {
+	width:648px;
+	height:36px;
+	margin-bottom:3px;
+	background-color:#e6e6e6;
+}
+.detail p, .detail span {
+	float:left;
+	width:180px;
+	text-align:center;
+	overflow:hidden;
+	color:#323232;
+	font-weight:bold;
+	line-height:36px;
+}
+.box ol {
+	width:648px;
+}
+.box ol li {
+	width:603px;
+	height:62px;
+	background-color:#e6e6e6;
+	padding:10px 45px 10px 0;
+	margin-bottom:3px;
+}
+.box ol li p, .box ol li span {
+	float:left;
+	width:170px;
+	text-align:center;
+	overflow:hidden;
+	color:#323232;
+	height:62px;
+	line-height:62px;
+	padding:0 5px;
+}
+.box ol li span {
+	font-weight:bold;
+}
+.box ol li div {
+	width:77px;
+	height:60px;
+	background-color:#fff;
+	border:1px solid #626262;
+	float:right;
+}
+.box ol li div img {
+	display:block;
+	width:77px;
+	height:60px;
+}
+.result {
+	height:44px;
+	line-height:44px;
+	padding-left:10px;
+	color:#000;
+	font-size:14px;
+	font-weight:bold;
+  position:relative;
+}
+.result strong {
+	color:#b9003d;
+}
+.result input {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+ }
+ 
+ #test { width: 200px; height: 200px; background: red; /*opacity: 1;*/}
+</style>
+</head>
+
+<body>
+<div class="box" id="box">
+  <h3 class="h3s">限购时间<span>(输入格式为：dec,8,2016 14:55:00)</span></h3>
+  <div class="con">
+    <div class="none" id="none"></div>
+    <ul>
+      <li>
+        <div class="goods">
+          <div class="dinput">
+            <input type="text" class="txt" value="mar,29,2017 17:36:00" />
+            <input type="button" class="btn" value="确定" />
+          </div>
+          <span class="remtime">剩余00天00小时00分00秒</span>
+          <div class="dimg"> <img src="img/txd.jpg" width="120" height="117" alt="" /> <b><span>8.8</span>折</b> </div>
+          <p class="dps">飞利浦（Philips）RQ370 锐锋系列电动剃须刀</p>
+          <p class="price">抢购价：<em>￥</em><em>455.00</em></p>
+        </div>
+      </li>
+
+      <li>
+        <div class="goods">
+          <div class="dinput">
+            <input type="text" class="txt" value="mar,17,2017 15:55:00" />
+            <input type="button" class="btn" value="确定" />
+          </div>
+          <span class="remtime">剩余00天00小时00分00秒</span>
+          <div class="dimg"> <img src="img/dn.jpg" width="120" height="117" alt="" /> <b><span>8.8</span>折</b> </div>
+          <p class="dps">索尼（SONY） SVF15A18SCB 15.5英寸触控笔记本 </p>
+          <p class="price">抢购价：<em>￥</em><em>5599.00</em></p>
+        </div>
+      </li>
+      <li>
+        <div class="goods">
+          <div class="dinput">
+            <input type="text" class="txt" value="mar,17,2017 15:55:00" />
+            <input type="button" class="btn" value="确定" />
+          </div>
+          <span class="remtime">剩余00天00小时00分00秒</span>
+          <div class="dimg"> <img src="img/sj.jpg" width="120" height="117" alt="" /> <b><span>8.8</span>折</b> </div>
+          <p class="dps">联想VIBE Z K910（铂雅银） WCDMA/GSM　双卡双待双通</p>
+          <p class="price">抢购价：<em>￥</em><em>2299.00</em></p>
+        </div>
+      </li>
+      <li>
+        <div class="goods">
+          <div class="dinput">
+            <input type="text" class="txt" value="mar,17,2017 15:55:00" />
+            <input type="button" class="btn" value="确定" />
+          </div>
+          <span class="remtime">剩余00天00小时00分00秒</span>
+          <div class="dimg"> <img src="img/watch.jpg" width="120" height="117" alt="" /> <b><span>8.8</span>折</b> </div>
+          <p class="dps">BURBERRY/巴宝莉 时尚英伦格纹优雅石英中性</p>
+          <p class="price">抢购价：<em>￥</em><em>899.00</em></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="detail">
+    <p>商品名称</p>
+    <span>价钱</span>
+  </div>
+    <ol>
+       <!-- <li><p>BURBERRY/巴宝莉 时尚英伦格纹优雅石英中性</p><span>899.00</span><div><img src="img/watch.jpg" width="77" height="60" alt="" /></div></li> --> 
+    </ol>
+  <div class="result" id="result">
+    总价：<strong>0.00</strong>元
+  </div>
+</div>
+</body>
+</html>
+<script type="text/javascript" src="Mtween.js">
+	
+</script>
+<script type="text/javascript">
+	var lis = document.getElementsByTagName('ul')[0].getElementsByTagName('li');
+	var box = document.getElementById('box');
+	var zj = box.getElementsByClassName('result')[0].getElementsByTagName('strong')[0];
+	var ol = box.getElementsByTagName('ol')[0];
+	//console.log(zj);
+	var timer = null;
+	var arr = [
+		{
+			name:'飞利浦（Philips）RQ370 锐锋系列电动剃须刀',
+			price:'455.00',
+			img:'txd.jpg'
+		},
+		{
+			name:'索尼（SONY） SVF15A18SCB 15.5英寸触控笔记本',
+			price:'5599.00',
+			img:'dn.jpg'
+		},
+		{
+			name:'联想VIBE Z K910（铂雅银） WCDMA/GSM　双卡双待双通',
+			price:'2299.00',
+			img:'sj.jpg'
+
+		},
+		{
+			name:'BURBERRY/巴宝莉 时尚英伦格纹优雅石英中性',
+			price:'899.00',
+			img:'watch.jpg'
+		}
+	]
+		
+	for(var i=0;i<lis.length;i++){
+		fn(i);
+	}
+	function fn(n){
+		var input = lis[n].getElementsByTagName('input')[0];
+		var btn = lis[n].getElementsByTagName('input')[1];
+		var span = lis[n].getElementsByTagName('span')[0];
+		var div = lis[n].getElementsByClassName('goods')[0];
+		//console.log(div);
+		//var off = null;
+		var odd = true;
+		var m = 0;
+		btn.onclick = function(){
+			if(odd){
+				odd = false;
+				var info = input.value;
+				var day = info[4]+info[5];
+				var h = info[12]+info[13];
+				var m = info[15]+info[16];
+				var s = info[18]+info[19];
+				//console.log(s);
+				var futu = new Date();
+				futu.setDate(day);
+				futu.setHours(h);
+				futu.setMinutes(m);
+				futu.setSeconds(s); 
+				//console.log(futu);
+				//console.log(shi)
+				timer = setInterval(function(){
+					var now = new Date();
+					var shy = (futu-now)/1000;
+					//console.log(shey);
+					if(shy>0){
+						var shyD = Math.floor(shy/86400);
+						var shyH = Math.floor(shy%86400/3600);
+						var shyM = Math.floor(shy%3600/60);
+						var shyS = Math.floor(shy%60);
+						var info1 = span.innerHTML;
+						//console.log(info1[5])
+						// var shi = info1[5]+info1[6];
+						// var fen = info1[9]+info1[10];
+						// var shi = info1[12]+info1[13];
+						var str = ''
+						str = '剩余'+two(shyD)+'天'+two(shyH)+'小时'+two(shyM)+'分'+two(shyS)+'秒';
+						span.innerHTML = str;
+						//off = true;
+					}else{shake(div,'left',function(){
+							div.style.display = 'none';
+							ol.innerHTML+='<li><p>'+arr[n].name+'</p><span>'+arr[n].price+'</span><div><img src="img/'+arr[n].img+'" width="77" height="60" alt="" /></div></li>';
+							var spans = ol.getElementsByTagName('span');
+							var count = 0;
+							for(var i=0;i<spans.length;i++){
+								count += Number(spans[i].innerHTML);//转成数字才能相加
+							}
+							zj.innerHTML = count;
+						})
+						clearInterval(timer);
+					}
+				},1000);
+					// m++;
+					// // zj.innerHTML = parseFloat(arr[n].price)*n; 
+					// for(var i=0;i<lis.length;i++){
+					// 	zj.innerHTML = parseFloat(arr[i].price)*m; 
+					// }
+			}
+		}
+	}
+function two(n){
+		return n<10?'0'+n:''+n;
+}
+</script>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width: 50px;
+				height: 50px;
+				position: absolute;
+				background:url("pic.jpg") ;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+		<script type="text/javascript" src="Mtween.js">
+			
+		</script>
+		<script type="text/javascript">
+			var str = '';
+			for(var i=0;i<100;i++){
+				//0-600间随机整数
+				var m = Math.round(Math.random()*600);
+				var m2 = Math.round(Math.random()*600);
+				str += '<div style="left:'+m+'px;top:'+m2+'px;background-position:'+-i%10*50+'px '+-Math.floor(i/10)*50+'px"></div>';
+			}
+			document.body.innerHTML += str;
+			var divs = document.getElementsByTagName('div');
+			for(var i=0;i<divs.length;i++){
+				divs[i].l = i%10*50;
+				divs[i].t = Math.floor(i/10)*50+50;	
+			}
+			//按钮要在下面获取，加点击事件，如果写在document.body.innerHTML上边，加的点击事件就没有了，所以点了会没有反应
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				for(var i=0;i<divs.length;i++){
+					move({
+						obj:divs[i],
+						attrs:{
+							left:divs[i].l,
+							top:divs[i].t
+						},
+						duration:1000
+					})
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 100px;
+				height: 100px;
+				background: red;
+				position: absolute;
+				left:300px;
+				top:300px;
+			}
+		</style>
+	</head>
+	<body>
+		时：
+		<input type="text" />
+		分：
+		<input type="text" />
+		秒：
+		<input type="text" />
+		<input type="button" value="开始"/>
+		<br />
+		<br />
+		<br />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/c.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/c.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<div id="box"></div>
+<script type="text/javascript" src="Mtween.js">
+	
+</script>
+<script type="text/javascript">
+	/*
+	 	shyTime/1000,单位换算成秒
+	 	1分 = 60秒
+	 	1时 = 3600秒
+	 	1天 = 86400秒
+	 *    
+	 * 天：Math.floor(shyTime/86400)
+	 
+	 * 时：Math.floor(shyTime%86400/3600)
+	 * 分：Math.floor(shyTime%3600/60)
+	 * 秒：Math.floor(shyTime%60)
+	 * 
+	 * 
+	 * 86400*2 172800+3600 = 176401/86400
+	 * */
+var box = document.getElementById('box');
+var inps = document.getElementsByTagName('input');
+var imgs = document.getElementsByTagName('img');
+var timer = null;
+//开始按钮
+inps[3].onclick = function(){
+	//偷懒处理，时分秒哪个不输入默认是0
+	var h = inps[0].value || 0;
+	var m = inps[1].value || 0;
+	var s = inps[2].value || 0;
+	//设置目标时间
+	var target = new Date();
+	target.setHours(h);
+	target.setMinutes(m);
+	target.setSeconds(s);
+	//console.log(target)
+	timer = setInterval(function(){
+	//当前
+		var now = new Date();
+		//目标时间-当前时间=剩余时间，还剩多少时间，除以1000，单位换算成秒
+		var shyTime = (target-now)/1000;
+		//如果剩余时间>0，证明时间还没到
+		if(shyTime>0){
+			//没到时
+			//图片数字根据倒计时时间换算后的时分秒，显示
+		var shyH = Math.floor(shyTime%86400/3600);
+		var shyM = Math.floor(shyTime%3600/60);
+		var shyS = Math.floor(shyTime%60);
+				//根据剩余时间，拼好字符串
+		var str = '';
+		str = two(shyH)+':'+two(shyM)+':'+two(shyS);
+			//console.log(str)
+			//根据字符串逐位显示图片数字
+			for(var i=0;i<imgs.length;i++){
+				var s = str[i];
+				if(s==':'){
+					s = 'c';
+				}
+				imgs[i].src = 'images/'+s+'.jpg';
+			}
+		}else{
+			//到时了
+			//倒计时时间到了以后要做的事，写这里
+			clearInterval(timer);
+			//先抖动，抖完往右移动，移动完颜色变蓝，完成某事1做某事2，某事2写在某事1的回调函数里
+			shake(box,'left',function(){//回调函数
+				move({
+					obj:box,
+					attrs:{left:600},
+					duration:2000,
+					fx:'bounceIn',
+					//回调函数
+					callBack:function(){
+						this.style.background = 'blue';
+					}
+				})
+			})	
+		}	
+	},1000)	
+}
+function two(n){
+		return n<10?'0'+n:''+n;
+}
+</script>
+	</body>
+</html>

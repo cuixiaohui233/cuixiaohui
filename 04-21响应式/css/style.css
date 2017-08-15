@@ -1,0 +1,13 @@
+div{
+	width: 400px;
+	height: 400px;
+	background: red;
+}
+
+
+@media only screen and (min-width:400px ) {
+	div{
+		border:5px solid #000;
+	}
+}
+

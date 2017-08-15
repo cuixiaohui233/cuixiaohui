@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width:800px;
+				height:500px;
+				border:5px solid pink;
+				display: flex;
+				flex-direction: row;
+				justify-content: flex-start;
+				align-items: center;
+			}
+			.item{
+				width: 80px;
+				height: 50px;
+				border: 1px solid #000;
+				background: green;
+			}
+		</style>
+	</head>
+	<!--
+		align-items	侧轴对齐
+		
+		flex-start (默认)   元素在开始位置 富裕空间占据另一侧
+		flex-end    富裕空间在开始位置 元素占据另一侧
+		center       元素居中 富裕空间 平分左右两侧
+
+	-->
+	<body>
+		<div class="box">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+		</div>
+	</body>
+</html>

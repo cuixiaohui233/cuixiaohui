@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width:800px;
+				height:500px;
+				border:5px solid pink;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: flex-start;
+				flex-wrap: wrap;
+				align-content: space-around;
+			}
+			.item{
+				width: 80px;
+				height: 50px;
+				border: 1px solid #000;
+				background: green;
+			}
+		</style>
+	</head>
+	<!--
+		align-content 堆栈伸缩行
+		align-content 会更改 flex-wrap 的行为。它和 align-items 相似，但是不是对齐伸缩项目，它对齐的是伸缩行。
+		
+		flex-start (默认)  元素在开始位置 富裕空间占据另一侧
+		flex-end  富裕空间在开始位置 元素占据另一侧
+		center 元素居中 富裕空间 平分左右两侧
+		space-between 富裕空间在元素之间平均分配
+		space-around   富裕空间在元素两侧平均分配
+
+	-->
+	<body>
+		<div class="box">
+			<div class="item">1</div>
+			<div class="item">2</div>
+			<div class="item">3</div>
+			<div class="item">4</div>
+			<div class="item">5</div>
+			<div class="item">6</div>
+			<div class="item">7</div>
+			<div class="item">8</div>
+			<div class="item">9</div>
+			<div class="item">10</div>
+			<div class="item">11</div>
+			<div class="item">12</div>
+			<div class="item">13</div>
+			<div class="item">14</div>
+			<div class="item">15</div>
+			<div class="item">16</div>
+			<div class="item">17</div>
+			<div class="item">18</div>			
+		</div>
+	</body>
+</html>

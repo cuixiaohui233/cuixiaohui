@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="icon" href="favicon.ico" />
+		<style>
+			/*div~p{
+				background: red;
+			}*/
+			/*div+p{
+				background: red;
+			}*/
+			/*#box p{
+				background: red;
+			}*/
+			#box>p{
+				background: red;
+			}
+		</style>
+	</head>
+	<body>
+		<p>p</p>
+		<div>div</div>
+		<p>p</p>
+		<p>p</p>
+		<p>p</p>
+		
+		<div id="box">
+			<div>
+				<p>p</p>
+			</div>
+			<p>p</p>
+			<p>p</p>
+		</div>
+<script>
+	/*
+	      for in 循环对象 {} []
+	      {}:只能用for in
+	      []:可以用for，也可以用for in
+	      for in只能循环全部
+	      for可以循环全部或者局部，可正可倒
+	 * 
+	 * var obj = {
+	 * 	 name:'小白',
+	 *   age:18
+	 * }
+	 * 	键值对循环
+	 *   for(var k in obj){
+	 * 		//k在每次循环中，代表键
+	 *      //第一组循环，k就是name
+	 * 		//第二次循环，k就是age
+	 * 		//第一次循环，obj[k]就是'小白'
+	 *      //第二次循环，obj[k]就是18	
+	 *   }
+	 * 	数组循环
+	 *   var arr = [1,2,3]
+	 * 	for(var k in arr){
+	 * 		//k在每次循环中，代表数字下标
+	 *      //第一组循环，k就是0
+	 * 		//第二次循环，k就是1
+	 * 		//第一次循环，obj[k]就是1
+	 *      //第二次循环，obj[k]就是2	
+	 *  }
+	 * 
+	 * 	NaN是数字类型，特殊的数字，其他数据类型转换成数字，转不出来才会出现NaN
+	 * 
+	 * 	隐式类型转换，系统为了运算需要，悄悄的转换了类型
+	 * 	var s = 'abc'-10;NaN-10 NaN
+	 * 
+	 * 
+	 * */
+		var s = true+10
+		console.log(s)
+		/*
+		 	div~p:div和p是兄弟关系,div后边的所有p
+		 	div+p:div和p是兄弟关系,div后边紧挨着的第一个p
+		 	
+		 	div p:div和p是父子，孙子关系，div内部的所有p
+		 	
+		 	div>p:div和p是父子关系，div内部第一级所有p
+		 * `${}`
+		 * 
+		 * i  +  ()
+		 * 
+		 * */
+//		''+(n+1)+'px '+(n+1)+'px'
+//	n+1+'px'
+
+		/*
+		 	switch  条件判断
+		 * switch(判断条件){
+		 * 	case 条件1：
+		 * 		条件1成立执行的代码
+		 *  //break;
+		 *  case 条件2：
+		 * 		条件2成立执行的代码
+		 *  break;
+		 * 	default:
+		 * 		都不成立执行的代码
+		 * 	break;
+		 * }
+		 * 
+		 * 判断条件===条件1
+		 * 
+		 * 
+		 * if(n>0&&n<10){
+		 * 	  alert(1)
+		 * }
+		 * switch(true){
+		 * 		case n>0&&n<10:
+		 * 			alert(1)
+		 * 		break;
+		 * }
+		 * 
+		 * n++
+		 * 1+1
+		 * a?b:c
+		 * if(a){
+		 * 	b
+		 * }else{
+		 * 	c
+		 * }
+		 * 
+		 * if(n<0){
+		 * 	 alert(1)
+		 * }else{
+		 * 	 alert(2)
+		 * }
+		 * 
+		 * n<0?alert(1):alert(2)
+		 * */
+		
+//		function fn(init={a:1,b:2}){
+//			console.log(init.b)
+//		}
+//		fn()
+//		function fn2(a,b=2){
+//			
+//		}
+		/*
+		 	getComputedStyle(元素)
+		 		获取元素样式，获取到的是对象，想获取某个样式，getComputedStyle(元素).样式名，带单位，注意复合样式
+		 * 
+		 * */
+		/*
+		 	函数传参	
+		 		实参，形参
+		 		
+		 *  return
+		 * */
+		function fn(){
+			var n = 1;
+			fn2(n)
+		}
+		fn()
+		function fn2(_n){
+			//console.log(_n)
+			return _n
+		}
+		fn2()
+		var n;
+		function fn3(){
+			n = 10;	
+		}
+		fn3();
+		function fn4(){
+			console.log(n)
+		}
+		fn4()
+</script>
+	</body>
+</html>

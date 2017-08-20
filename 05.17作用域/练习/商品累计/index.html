@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body,
+			ul,
+			li {
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+		</style>
+		<link rel="stylesheet" type="text/css" href="price.css" />
+	</head>
+
+	<body onselectstart="return false;">
+		<div class="wrap">
+			<div class="box">
+				<ul class="list">
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<div>
+							单价：<span>12.5元 </span> 小计：<strong>0元</strong>
+						</div>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<div>
+							单价：<span>10.5元 </span> 小计：<strong>0元</strong>
+						</div>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<div>
+							单价：<span>8.5元 </span> 小计：<strong>0元</strong>
+						</div>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<div>
+							单价：<span>8元 </span> 小计：<strong>0元</strong>
+						</div>
+					</li>
+					<li>
+						<i></i>
+						<em>0</em>
+						<i></i>
+						<div>
+							单价：<span>14.5元 </span> 小计：<strong>0元</strong>
+						</div>
+					</li>
+				</ul>
+				<div class="info">
+					<span>商品公合计：<em>0</em>件</span>
+					<span>共花费了：<em>0</em>元</span>
+					<br />
+					<br />
+					<span>其中最贵的商品单价是：<em>0</em>元</span>
+				</div>
+			</div>
+		</div>
+		<script>/*
+			var list = document.getElementsByClassName('list')[0];
+			var lis = list.getElementsByTagName('li');
+			var is = list.getElementsByTagName('i');
+			var ems = list.getElementsByTagName('em');
+			var add = ems[0];
+			var jian = ems[1];
+			var spans = list.getElementsByTagName('span');
+			var strongs = list.getElementsByTagName('strong');
+			var info = document.getElementsByClassName('info')[0];
+			var heji = info.getElementsByTagName('em')[0];
+			var huafei = info.getElementsByTagName('em')[1];
+			var xuigui = info.getElementsByTagName('em')[2];
+			function fn(){
+				var shu = 0;
+				var jia = 0;
+				var gui = 0;
+				for(var i=0;i<lis.length;i++){
+					shu += Number(ems[i].innerHTML);
+					jia += parseFloat(spans[i].innerHTML);
+					if(gui<parseFloat(spans[i].innerHTML)&&Number(ems[i].innerHTML)!=0){
+						gui = parseFloat(spans[i].innerHTML);
+					}
+				}
+				heji.innerHTML = shu;
+				huafei.innerHTML = jia;
+				xuigui.innerHTML = gui;
+			}
+			for(var i=0;i<lis.length;i++){
+				tab(i);
+			}
+			function tab(m){
+				var li = list.getElementsByTagName('li')[0];
+				var is = li.getElementsByTagName('i');
+				var ems = li.getElementsByTagName('em');
+				var add = ems[0];
+				var jian = ems[1];
+				var spans = li.getElementsByTagName('span');
+				var strongs = li.getElementsByTagName('strong');
+				var add = ems[0];
+				var jian = ems[1];
+				var n = 0;
+				add.onclick = function(){
+					n++;
+					ems.innerHTML = n;
+				}
+			}*/
+			var list = document.getElementsByClassName('list')[0];
+			var ems = list.getElementsByTagName('em');
+			var spans = list.getElementsByTagName('span');
+			var strongs = list.getElementsByTagName('strong');
+			var lis = document.getElementsByTagName('li');
+			var info = document.getElementsByClassName('info')[0];
+			var	total = info.getElementsByTagName('em');
+			function sum(){
+				//总数
+				var count = 0;
+				//总价
+				var money = 0;
+				//最贵
+				var max = 0;
+				for(var i=0;i<lis.length;i++){
+					count += Number(ems[i].innerHTML);
+					money += parseFloat(strongs[i].innerHTML);
+					if(ems[i].innerHTML!=0 && parseFloat(spans[i].innerHTML)>max){
+					max = 	parseFloat(spans[i].innerHTML);
+					}	
+				}
+				total[0].innerHTML = count;
+				total[1].innerHTML = money;
+				total[2].innerHTML = max;	
+			}
+			
+			for(var i=0;i<lis.length;i++){
+				fn(i);
+			}
+			
+			function fn(n){
+				//+-
+				var is = lis[n].getElementsByTagName('i');
+				//单个商品数量
+				var em = lis[n].getElementsByTagName('em')[0];
+				//单价
+				var span = lis[n].getElementsByTagName('span')[0];
+				//单个小计
+				var strong = lis[n].getElementsByTagName('strong')[0];
+				//n：单个数量
+				var m = 0;
+				//price：单价
+				//用变量存数字类型的数量和单价，方便运算
+				var price = parseFloat(span.innerHTML);
+				
+				//-
+				is[0].onclick = function(){
+					if(m>0){
+						m--;
+						em.innerHTML = m;
+						strong.innerHTML = m*price+'元';
+						sum();
+					}
+				}
+				//+
+				is[1].onclick = function(){
+					m++;
+					em.innerHTML = m;
+					strong.innerHTML = m*price+'元';
+					sum();
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			ul{
+				margin:0;
+				padding:0;
+				list-style: none;
+				height:50px;
+				border-bottom:1px solid #000 ;
+			}
+			li{
+				float: left;
+				padding:10px 20px;
+				border: 1px solid #000;
+				margin-right:10px;
+			}
+			#box{
+				position: absolute;
+				top:400px;
+			}
+			#box div{
+				width: 80px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
+				border: 1px solid #000;
+				float: left;
+				margin-right:10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>按钮1</li>
+			<li>按钮1</li>
+			<li>按钮1</li>
+		</ul>
+		<ul>
+			<li>按钮2</li>
+			<li>按钮2</li>
+			<li>按钮2</li>
+		</ul>
+		<ul>
+			<li>按钮3</li>
+			<li>按钮3</li>
+			<li>按钮3</li>
+		</ul>
+		<div id="box">
+			<div>1</div>
+			<div>1</div>
+			<div>1</div>
+		</div>
+		<script>
+			var uls = document.getElementsByTagName('ul');
+			var box = document.getElementById('box');
+			for(var i=0;i<uls.length;i++){
+				fn(i);
+			}
+			
+			function fn(n){
+				var lis = uls[n].getElementsByTagName('li');
+				var div = box.getElementsByTagName('div')[n];
+				var m = 1;
+				for(var i=0;i<lis.length;i++){
+					lis[i].onclick = function(){
+						m++;
+						div.innerHTML = m;
+					}
+				}
+			}
+			
+		</script>
+	</body>
+</html>

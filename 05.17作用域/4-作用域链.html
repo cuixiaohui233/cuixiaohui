@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width:100px;
+				height:100px;
+				background:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script>
+			/*
+			 	作用域链
+			 		使用变量/函数时，查找规则
+			 		
+			 		函数内部->形参->函数外部
+			 * */
+			var divs = document.getElementsByTagName('div');
+			var n = 10;
+			function fn(n){
+				//var n = 30;
+				function fn1(n){
+					//var n = 50;
+					//console.log(n)
+				}
+				fn1(40)
+			}
+			fn(20)
+			
+			for(var i=0;i<10;i++){
+				console.log(i)//0-9
+				divs[i].onclick = function(){
+					console.log(i)//10
+//					for(var i=0;i<10;i++){
+//						
+//					}
+				}
+			}console.log(i)
+			/*
+			 	i=0
+			 	divs[0].onclick = function
+			 	i=1
+			 	divs[1].onclick = function
+			 	
+			 	i=9
+			 *  divs[9].onclick = function
+			 	i=10
+			 * */
+		</script>
+	</body>
+</html>

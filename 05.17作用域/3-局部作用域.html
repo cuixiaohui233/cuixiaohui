@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 	局部作用域
+			 		局部变量/函数只能在该函数内部访问,外部访问不了
+			 * */
+			function fn(){
+				//局部变量，局部函数
+				var n = 10;
+				function fn1(){
+					
+				}
+				//该函数内部可以访问
+//				console.log(n)
+//				console.log(fn1)
+				function fn2(){
+					//m只能在fn2内访问，在fn不可以访问
+					var m = 20;
+					console.log(n)
+					console.log(fn1)
+				}
+				fn2();
+			}
+			fn();
+			//全局不可以访问
+			//console.log(n)
+			//console.log(fn1)
+		</script>
+	</body>
+</html>

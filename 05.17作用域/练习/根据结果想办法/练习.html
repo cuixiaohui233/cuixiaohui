@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var arr = [ '100px', 'abc'-6, [], -98765, 34, -2, 0, '300', , function(){alert(1);}, null, document, [], true, '200px'-30,'23.45元', 5, Number('abc'), function(){ alert(3); }, 'xyz'-90,false ];
+
+	
+    /*
+     1、找到arr里所有的数字：-98765, 34, -2, 0, 5
+     2、找到可以转成数字的：'100px', -98765, 34, -2, 0, '300', '23.45元',  5
+     3、把转成数字以后，最大值判断出来：300
+     4、把 NaN 所在的位置找出来：1 14 17  19*/
+    var arr1 = [];
+    var arr2 = [];
+    var max = 0;
+    var arr4 = [];
+    for(var k in arr){
+    	if(typeof arr[k]=='number'&&!isNaN(arr[k])){
+    		arr1.push(arr[k])
+    	}
+    	if(parseFloat(arr[k]) || arr[k]===0){
+    		arr2.push(arr[k])
+    	}
+    	if(max<parseFloat(arr[k])){
+    		max = parseFloat(arr[k]);
+    	}
+    	if(typeof arr[k]=='number'&&isNaN(arr[k])){
+    		arr4.push(k)
+    	}
+    	
+    }
+    //console.log(arr1)
+    //console.log(arr2)
+    //console.log(max)
+    console.log(arr4)
+</script>

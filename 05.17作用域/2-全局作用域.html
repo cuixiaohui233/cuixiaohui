@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 	全局作用域
+			 		全局变量，全局函数，全局可以访问
+			 * 
+			 * */
+			var n = 10;
+			function fn(){
+				console.log('全局函数')
+			}
+			//全局可以访问
+			//console.log(n)
+			//全局可以访问
+			//console.log(fn)
+			
+			function fn1(){
+				//局部也可以访问
+//				console.log(n)
+//				console.log(fn)
+				function fn2(){
+					console.log(n)
+					console.log(fn)
+				}
+				fn2();
+			}
+			fn1();
+		</script>
+	</body>
+</html>

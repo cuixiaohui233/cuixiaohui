@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/c.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/c.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<img src="images/0.jpg" alt="" />
+		<script type="text/javascript">
+			var imgs = document.getElementsByTagName('img');
+			var d1 = imgs[2];
+			var d2 = imgs[5];
+			//初始化，显示当前时间
+			setTime();
+			//开启定时器，每1秒执行一次，改变图片显示的数字，时钟就走起来了
+			setInterval(setTime,1000)
+			function setTime(){
+				var now = getTime();
+				for(var i=0;i<imgs.length;i++){
+					//处理（:）方法1
+					var s = now[i];
+					if(s==':'){
+						s = 'c';
+					}
+					//处理（:）方法2
+	//				if(i==2||i==5){
+	//					continue;
+	//				}
+					imgs[i].src ='images/'+s+'.jpg';
+				}
+				//处理点闪烁，延时半秒设置成无点
+				setTimeout(function(){
+					d1.src = d2.src = 'images/b.jpg';
+				},500)
+			}
+			//获取当前时间，返回时:分:秒的字符串，用来循环每一个图片设置成对应的数字
+			function getTime(){
+				var date = new Date();
+				var h = date.getHours();
+				var m = date.getMinutes();
+				var s = date.getSeconds();
+				var str = '';
+				str = two(h)+':'+two(m)+':'+two(s);
+				//补0函数,时间小于10，一般都是01，02，所以需要补0
+				function two(n){
+					return n<10?'0'+n:''+n;
+				}
+				return str;
+			}
+			console.log(getTime())
+		</script>
+	</body>
+</html>

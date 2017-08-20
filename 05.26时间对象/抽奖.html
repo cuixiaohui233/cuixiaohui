@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width: 200px;
+				height: 200px;
+				border: 1px solid #000;
+				margin:50px auto 0;
+				line-height: 200px;
+				text-align: center;
+				font-size:50px;
+			}
+			#btns{
+				position: absolute;
+				left:460px;
+				top:300px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">陈斌</div>
+		<div id="btns">
+			<input type="button" value="开始"/>
+			<input type="button" value="停止"/>
+		</div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			var btn = document.getElementById('btns').getElementsByTagName('input');
+			var arr = ['李建超','王红岩','张燕辉','范旭腾','白世鹏','韩阳','于帅','林高鸿','董颖','赵伟','崔小慧','孙凤良','陈思','岳和平','张亚雄','徐畅','管金亮','陈欢','张益豪','王慧仙','王泽慧','沈松','王威','贺天翔','盖奇龙','刘鹏博','于偲鸿','秦焕禹','马辉','刘雅松','岑凯','江雄','杨伟楠','扈宇航','赵俊伟','于钊','李晋','徐胜','赵星云','程浩然','翁新品','聂笠','耿裕建','钟一鸣','李晓同','韩飞龙','黄文静','白诚旭','张特','王通宇'];
+			var timer = null;
+			//开始
+			btn[0].onclick = function(){
+				timer = setInterval(function(){
+					var n = Math.round(Math.random()*(arr.length-1));
+					box.innerHTML = arr[n];
+				},20)
+			}
+			//停止
+			btn[1].onclick = function(){
+				clearInterval(timer);
+			}
+		</script>
+	</body>
+</html>

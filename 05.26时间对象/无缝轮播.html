@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style>
+body { background:#f1f1f1; }
+#box { width:640px; height:320px; position:relative; top:100px; margin:0 auto;overflow:hidden; box-shadow:0 0 20px rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.5); }
+#box a { width:28px; height:100px; line-height:100px; text-align:center; background:rgba(0,0,0,0.2); color:#fff; font-size:26px; text-decoration:none; position:absolute; top:110px; z-index:2; transition:0.3s; }
+#box a:hover { background:rgba(0,0,0,0.6); transform:scale(1.1); font-size:32px; }
+#box .prev { left:-1px; border-radius:0 8px 8px 0; }
+#box .next { right:-1px; border-radius:8px 0 0 8px; }
+#box ul { padding:0; margin:0; width:1280px; position:absolute; top:0; left:0; }
+#box li { list-style:none; float:left; width:640px; }
+#box img { width:640px; height:320px; }
+</style>
+</head>
+
+<body>
+
+<div id="box">
+	<a class="prev" href="javascript:;"><</a>
+	<a class="next" href="javascript:;">></a>
+	<ul>
+		<li><img src="" /></li>
+		<li><img src="" /></li>
+	</ul>
+</div>
+<script src="move.js"></script>
+<script>
+	var box = document.getElementById('box');
+	var prev = box.getElementsByClassName('prev')[0];
+	var next = box.getElementsByClassName('next')[0];
+	var ul = box.getElementsByTagName('ul')[0];
+	var imgs = ul.getElementsByTagName('img');
+	var arr = ['img/img1.jpg','img/img2.jpg','img/img3.jpg','img/img4.jpg','img/img5.jpg','img/img6.jpg','img/img7.jpg','img/img8.jpg'];
+	var n = 0;
+	imgs[0].src = arr[n];
+	//往左走
+	prev.onclick = function(){
+		n++;
+		if(n>arr.length-1){
+			n = 0;
+		}
+		imgs[1].src = arr[n];
+		move(ul,{left:-640},2000,'linear',function(){
+			imgs[0].src = arr[n];
+			ul.style.cssText = '';
+		})
+	}
+	//往右走
+	next.onclick = function(){
+		imgs[1].src = arr[n];
+		ul.style.left = '-640px';
+		n--;
+		if(n<0){
+			n = arr.length-1;
+		}
+		imgs[0].src = arr[n];
+		move(ul,{left:0},2000,'linear')
+	}
+	//setInterval(prev.onclick,2200)
+</script>
+</body>
+</html>

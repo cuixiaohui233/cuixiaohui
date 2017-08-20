@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style>
+body { background:#f1f1f1; }
+#box { width:640px; height:320px; position:relative; top:100px; margin:0 auto;overflow:hidden; box-shadow:0 0 20px rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.5); }
+#box a { width:28px; height:100px; line-height:100px; text-align:center; background:rgba(0,0,0,0.2); color:#fff; font-size:26px; text-decoration:none; position:absolute; top:110px; z-index:2; transition:0.3s; }
+#box a:hover { background:rgba(0,0,0,0.6); transform:scale(1.1); font-size:32px; }
+#box .prev { left:-1px; border-radius:0 8px 8px 0; }
+#box .next { right:-1px; border-radius:8px 0 0 8px; }
+#box ul { padding:0; margin:0; width:1280px; position:absolute; top:0; left:0; }
+#box li { list-style:none; float:left; width:640px; }
+#box img { width:640px; height:320px; }
+</style>
+</head>
+
+<body>
+
+<div id="box">
+	<a class="prev" href="javascript:;"><</a>
+	<a class="next" href="javascript:;">></a>
+	<ul>
+		<li><img src="" /></li>
+		<li><img src="" /></li>
+	</ul>
+</div>
+<script src="Mtween.js"></script>
+<script>
+	var box = document.getElementById('box');
+	var prev = box.getElementsByClassName('prev')[0];
+	var next = box.getElementsByClassName('next')[0];
+	var ul = box.getElementsByTagName('ul')[0];
+	var imgs = ul.getElementsByTagName('img');
+	var arr = ['img/img1.jpg','img/img2.jpg','img/img3.jpg','img/img4.jpg','img/img5.jpg','img/img6.jpg','img/img7.jpg','img/img8.jpg'];
+	var n = 0;
+	//控制运动中不可以再次运动
+	var onOff = true;
+	var timer = null;
+	imgs[0].src = arr[n];
+	
+	/*
+	 * 点左边的箭头，图片向左移动切换，n++
+	 * img1,img2
+	 	1.运动前
+	 		Ul不用动，img2不可见（变成下一张），img1可以见（当前图片）
+	 	2.运动
+	 		ul向左移动，-640
+	 	3.运动后
+	 		img1变成当前，ul回到0，img1可见（当前图片）
+	 * 
+	 * */
+	//左边箭头，下一张，向左运动
+	prev.onclick = function(){
+		//开关为true才可以运动，开始运动后开关变成false，运动过程多次点击也不会有反应，在运动后开关设置成true，才可以再次点击运动
+		if(onOff){
+			onOff = false;
+			//1.img2变成下一张
+			n++;
+			if(n>arr.length-1){
+				n = 0;
+			}
+			imgs[1].src = arr[n];
+			//2.运动，ul向左移动-640
+			move({
+				obj:ul,
+				attrs:{left:-640},
+				duration:2000,
+				callBack:function(){
+					//3.运动完，img1变成当前图片，ul回到0，开关打开，可以再次点击运动
+					imgs[0].src = arr[n];
+					ul.style.cssText = '';
+					onOff = true;
+				}
+			})
+		}
+	}
+	//右箭头，向右运动,n--,上一张
+	/*
+	 	1.运动前
+	 		img2换成当前,ul瞬间变成-640,你现在看到的当前是img2了，img1变成下一张
+	 	2.运动
+	 		ul回到0
+	 * 
+	 * */
+	next.onclick = function(){
+		if(onOff){
+			onOff = false;
+			//1.img2换当前
+			imgs[1].src = arr[n];
+			//ul瞬间变成-640
+			ul.style.left = '-640px';
+			//img1变成下一张
+			n--;
+			if(n<0){
+				n = arr.length-1;
+			}
+			imgs[0].src = arr[n];
+			//运动,ul回到0
+			move({
+				obj:ul,
+				attrs:{left:0},
+				duration:2000,
+				callBack:function(){
+					//运动后，开关为true，可以再次点击运动
+					onOff = true;
+				}
+			})	
+		}
+	}
+	//自动播放
+	timer = setInterval(prev.onclick,2200);
+	box.onmouseover = function(){
+		clearInterval(timer);
+	}
+	box.onmouseout = function(){
+		timer = setInterval(prev.onclick,2200);
+	}
+</script>
+</body>
+</html>

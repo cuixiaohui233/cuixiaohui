@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//想获取本月有多少天，设置月份为下一个月，设置日为0，再获取日
+			var date = new Date();
+			date.setMonth(0);
+			date.setDate(30);
+			//现在是1月30日，想知道本月也就是1月有多少天，直接设置月为2月，由于2月没有30号，会自动跳到3月，再设置日为0,回到的是2月最后一天，不是我们想要的1月最后一天，所以在设置月时，先把日设成1，每月都有1号，再设置月的时候，不会跳月
+			date.setDate(1);
+			date.setMonth(1);
+			date.setDate(0);
+//			var n = date.getDate()
+			console.log(date)
+		</script>
+	</body>
+</html>

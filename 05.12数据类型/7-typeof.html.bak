@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 	typeof 检测数据类型
+			 		返回是的数据类型字符串，小写
+			 * number string boolean undefined object function symbol
+			 * */
+			var n = 1;
+			var str = '';
+			var b = true;
+			var a;
+			var Null = null;
+			var fn = function(){}
+			var s = Symbol()
+			//console.log(typeof n)
+			//console.log(typeof str)
+			//console.log(typeof b)
+			//console.log(typeof a)
+			//console.log(typeof Null)
+			//console.log(typeof fn)
+			//console.log(typeof s)
+			if(typeof n=='number'){
+				alert(1)
+			}
+		</script>
+	</body>
+</html>

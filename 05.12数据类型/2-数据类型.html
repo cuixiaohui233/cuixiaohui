@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 	数据类型
+			 		基础类型（简单类型）
+				 		1.String,字符串
+				 		2.Number，数字
+				 		3.Boolean，布尔值
+				 		4.Null，空
+				 		5.Undefined，未定义
+					复合类型（引用类型）
+						由基本类型和复合类型组成
+						6.Object,对象
+						数据类型的对象，往往代表{}
+							键值对:{}，无序性
+							数组：[]，有序性
+						{
+							键:值,
+							键:值
+						}
+						键值成对出现,存多个数据用的，多个键值对间用逗号分隔，注意键值间用冒号	
+						
+						
+						ES6新增
+						7.Symbol,特殊字符串，为了解决命名冲突覆盖问题的
+						创建：Symbol(字符串)
+			*/
+			var arr = [1,'a',null,undefined,true,[1,2,3]];
+			console.log(arr)
+			var j = {
+				//键：值
+				name:'小丽',
+				age:18
+			}
+			j.sex = '女';
+			//j.name = '小红'
+			console.log(j.name)
+			console.log(j)
+			
+			var fn1 = function(){};
+			var fn2 = function(){};
+			var s1 = Symbol('name')
+			var s2 = Symbol('name')
+//			console.log(fn1==fn2)
+//			console.log(s1==s2)
+//			console.log(s1)
+			j[s1] = '小红';
+			j[s2] = '小红';
+			console.log(j[s1])
+		</script>
+	</body>
+</html>

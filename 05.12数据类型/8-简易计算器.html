@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		+
+		<input type="text" />
+		=
+		<input type="text" />
+		<input type="button" value="按钮"/>
+		<script>
+			var inps = document.getElementsByTagName('input');
+			inps[3].onclick = function(){
+				var val1 = inps[0].value;
+				var val2 = inps[1].value;
+				inps[2].value = val1+val2;
+			}
+		</script>
+	</body>
+</html>

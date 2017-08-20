@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 	转数字
+			 		Number()
+			 		
+			 	1.字符串
+			 		空字符串转成0
+			 		忽略前后空格
+			 		忽略前边的0
+			 		转不成纯数字就返回NaN
+			 		
+			 	NaN :  not a number	
+			 	数字类型，不合法的数
+			 	
+			 * */
+			var str = '';
+			var str2 = '10';
+			var str3 = '    10    ';
+			var str4 = '    000010    ';
+			var str5 = '    1.2    ';
+			var str6 = '100px';
+			//console.log(Number(str))
+			//console.log(Number(str2))
+			//console.log(Number(str3))
+			//console.log(Number(str4))
+			console.log(Number(str5))
+			console.log(Number(str6))
+//			console.log(typeof NaN)
+			/*
+			 2.布尔值
+			 * 	true:1
+			 *  false:0
+			 * */
+			var b = true;
+			var b2 = false;
+//			console.log(Number(b))
+//			console.log(Number(b2))
+			
+			/*
+			 	3.null
+			 * 		null:0
+			 * */
+			var Null = null;
+			//console.log(Number(Null))
+			/*
+			 	4.undefined
+			 		undefined:NaN
+			 * */
+			var a;
+			//console.log(Number(a))
+			/*
+			    5.object
+			 * 		空数组：0
+			 * 		非空数组：NaN
+			 * 		键值对：NaN
+			 * */
+			var arr = [];
+			var arr2 = [1,2,3];
+			var j = {};
+			var j2 = {a:1}
+			console.log(Number(arr))
+			console.log(Number(arr2))
+			console.log(Number(j))
+			console.log(Number(j2))
+		</script>
+	</body>
+</html>

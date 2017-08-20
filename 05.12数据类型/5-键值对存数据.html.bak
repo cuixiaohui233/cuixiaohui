@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#list>li{
+				border: 1px solid #000;
+			}
+		</style>
+	</head>
+	<body>
+		<ul id="list">
+			<!--<li>
+				<p>姓名：小丽</p>
+				<div>性别：女</div>
+				<p>年龄：18</p>
+				<dl>
+					<dt>爱好</dt>
+					<dd>游泳</dd>
+					<dd>逛街</dd>
+					<dd>旅游</dd>
+				</dl>
+				<span>朋友</span>
+				<ul>
+					<li>小强</li>
+					<li>小明</li>
+				</ul>
+			</li>-->
+		</ul>
+		<script>
+			var data = [
+				{
+					name:'小红1',
+					age:18,
+					sex:'女',
+					like:{
+						title:'爱好',
+						info:['游泳','逛街','旅游']
+					},
+					friends:{
+						title:'朋友',
+						info:['大黄','小白','小强']
+					}
+					
+				},
+				{
+					age:18,
+					sex:'女',
+					name:'小红2',
+					like:{
+						title:'爱好',
+						info:['游泳','逛街','旅游']
+					},
+					friends:{
+						title:'朋友',
+						info:['大黄','小白','小强']
+					}
+					
+				},
+				{
+					age:18,
+					sex:'女',
+					name:'小红3',
+					like:{
+						title:'爱好',
+						info:['游泳','逛街','旅游']
+					},
+					friends:{
+						title:'朋友',
+						info:['大黄','小白','小强']
+					}
+					
+				},
+				{
+					age:18,
+					sex:'女',
+					name:'小丽4',
+					like:{
+						title:'爱好',
+						info:['游泳','逛街','旅游']
+					},
+					friends:{
+						title:'朋友',
+						info:['大黄','小白','小强']
+					}
+					
+				},
+				{
+					age:18,
+					sex:'女',
+					name:'小丽5',
+					like:{
+						title:'爱好',
+						info:['游泳','逛街','旅游']
+					},
+					friends:{
+						title:'朋友',
+						info:['大黄','小白','小强']
+					}
+					
+				},
+				{
+					age:18,
+					sex:'女',
+					name:'小丽6',
+					like:{
+						title:'爱好',
+						info:['游泳','逛街','旅游']
+					},
+					friends:{
+						title:'朋友',
+						info:['大黄','小白','小强']
+					}
+					
+				},
+				{
+					age:18,
+					sex:'女',
+					name:'小丽7',
+					like:{
+						title:'爱好',
+						info:['游泳','逛街','旅游']
+					},
+					friends:{
+						title:'朋友',
+						info:['大黄','小白','小强']
+					}
+					
+				}
+			];
+			var list = document.getElementById('list');
+			var str = '';
+			//当前第几页
+			var page = 1;
+			//每页显示几条数据
+			var len = 3;
+			var start = (page-1)*len;
+			var end = start+len;
+			if(end>data.length){
+				end = data.length;
+			}
+			/*
+			 	page  len   
+			 	 1     2     0,1
+			 	 2     2     2,3
+			 	 3     2     4,5
+			 * 
+			 * 
+			 * */
+			for(var i=start;i<end;i++){
+				str += `<li>
+				<p>姓名：${data[i].name}</p>
+				<div>性别：${data[i].sex}</div>
+				<p>年龄：${data[i].age}</p>
+				<dl>
+					<dt>${data[i].like.title}</dt>`;
+					for(var k in data[i].like.info){
+						str += '<dd>'+data[i].like.info[k]+'</dd>';
+					}
+					str += `</dl>
+				<span>${data[i].friends.title}</span>
+				<ul>`;
+				for(var k in data[i].friends.info){
+					str += '<li>'+data[i].friends.info[k]+'</li>';
+				}
+				str += '</ul></li>';
+					
+			}
+			list.innerHTML = str;
+		</script>
+	</body>
+</html>

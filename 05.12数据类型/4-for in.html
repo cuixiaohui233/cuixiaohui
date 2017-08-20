@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 * 循环对象
+			 	for(var 自定义 in 对象){
+			 		
+			 	}
+			 * 
+			 * */
+			var j = {
+				name:'小丽',
+				age:18,
+				sex:'女',
+				f:[{name:'小白'},2,3]
+			}
+			var arr = ['小丽',,'女']
+			//k自己定义，叫啥都行，在循环里代表属性名，j要循环的对象
+//			for(var k in j){
+//				console.log(k)
+//				console.log(j[k])
+//			}
+			for(var k in arr){
+				console.log(k)
+				console.log(arr[k])
+			}
+			console.log(j.f[0].name)
+		</script>
+	</body>
+</html>

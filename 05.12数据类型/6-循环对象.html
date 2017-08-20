@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul id="list">
+			
+		</ul>
+		<script>
+			var list = document.getElementById('list');
+			var data = {
+				a:1,
+				b:2,
+				c:3
+			}
+			var str = '';
+			for(var k in data){
+				if(k=='a'){
+					str += '<li>'+data[k]+'</li>';
+				}	
+			}
+			list.innerHTML = str;
+		</script>
+	</body>
+</html>

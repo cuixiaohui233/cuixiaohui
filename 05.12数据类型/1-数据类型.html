@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="按钮" id="btn"/>
+		<script>
+			/*
+			 * ECMAScript
+			 	数据类型
+			 		基础类型（简单类型）
+				 		1.String,字符串
+				 		2.Number，数字
+				 		3.Boolean，布尔值
+				 		4.Null，空
+				 		5.Undefined，未定义
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 1.String,字符串
+			 * 	  由0个或多个16位unicode字符组成的字符序列，单双都可以，必须成对出现
+			 * 
+			 * 
+			 * */
+			var str = '12ab%小丽';
+			var str2 = '\u6C46';
+//			console.log(str[0])
+//			console.log(str.length)
+			
+			/*
+			 	2.Number,数字
+			 		整数，小数
+			 * */
+			var n = 1;
+			var n1 = 1.2;
+			//console.log(0.1+0.2)
+			
+			/*
+			 	3.Boolean，布尔值
+			 * 		true false
+			 * 
+			 * 比较两边的值，如果数据类型不同，会先转成相同类型，再比较值是否相等
+			 *  == 两边值相同返回true 不同返回false，不比较数据类型 
+			 * 
+			 * !=   不同返回true 相同返回false，不比较数据类型 
+			 * 
+			 *  ===  两边值相同并且数据类型相同返回true 不同返回false，比较数据类型
+			 * !==  两边值或者数据类型有一个不相同返回true 都相同返回false，比较数据类型
+			 * */
+			var b = true;
+			var b1 = false
+			var btn = document.getElementById('btn');
+			btn.onclick = function(){
+				b = !b;
+				console.log(b)
+			}
+			//console.log(1==='1')
+			
+			/*
+			 	4.Null，空
+			 		只有一个值null
+			 	使用：
+			 		1.想存一个对象类型的数据，暂时没有可存的，先赋值为null
+			 		2.解绑用on绑定的事件函数
+			 		btn.onclick = null
+			 * */
+			btn.onclick = null;
+			console.dir(btn)
+			
+			/*
+			 	5.Undefined,未定义
+			 		只有一个值：undefined
+			 		我们不会主动赋值undefined，系统会给为赋值的变量，默认值为undefined
+			 * 
+			 * */
+			var a;
+			console.log(a)
+			console.log(undefined==null)//true
+			console.log(undefined===null)//false
+		</script>
+	</body>
+</html>

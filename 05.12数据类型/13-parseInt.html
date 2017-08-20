@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			/*
+			 * 字符串转数字，转不成数字，返回NaN
+			 	parseInt(),转成整数
+			 	parseFloat()，转成小数
+
+			 	1.空字符串转成NaN
+			 	2.忽略前后空格
+			 	3.忽略前边的0
+			 	4.忽略第一位非数字后边
+
+
+			 	Number.MAX_VALUE 是计算机处理的最大值
+			 	超过这个数就会是无穷大Infinity
+			 * */
+			var str = '';
+			var str2 = '10.6';
+			var str3 = '     10.6     ';
+			var str4 = ' 0000010.6  ';
+			var str5 = '100px';
+			var str6 = '100.89px';
+			console.log(parseInt(str))//nan
+			console.log(parseInt(str2))//10
+			console.log(parseFloat(str2))//10.6
+			console.log(parseInt(str3))//10
+			console.log(parseInt(str4))//10
+			console.log(parseFloat(str4))//10.6
+			console.log(parseInt(str5))//100
+			console.log(parseInt(str6))//100
+			console.log(parseFloat(str6))//100.89
+			console.log(Number(str6))//nan
+		</script>
+	</body>
+</html>

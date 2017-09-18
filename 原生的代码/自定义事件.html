@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">	
+	//存储器
+	function addEvent(obj,Events,fn){
+		
+		obj.zdy = obj.zdy || {};
+		
+		obj.zdy[Events] = obj.zdy[Events] || [];
+		
+		
+		obj.zdy[Events].push(fn);
+		
+	};
+	
+	
+	//触发器:
+	
+	function trigger(obj,Events){
+		
+		if(!obj.zdy[Events])return;
+		
+		for(var i=0;i<obj.zdy[Events].length;i++){
+			obj.zdy[Events][i].call(obj);
+		}
+	}
+	
+	
+	
+
+	addEvent(document,'点击',function(){
+		alert(1);
+	});
+	addEvent(document,'点击',function(){
+		alert(2);
+	});
+	addEvent(document,'mouseover',function(){
+		alert(3);
+	});
+	
+	
+	document.onclick = function(){
+		trigger(this,'点击');
+	}
+	
+	
+	//console.log(document.zdy);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	document.addEventListener('click',function(){
+//		alert(1);
+//	});
+//	document.addEventListener('click',function(){
+//		alert(2);
+//	});
+	
+	
+	
+	
+</script>
+</body>
+</html>

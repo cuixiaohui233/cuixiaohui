@@ -1,0 +1,7 @@
+<view class="addContent">
+  <textarea type="text" placeholder='输入要写的内容' class="input" bindinput="change" value="{{content}}"/>
+</view>
+<view class="button">
+  <view class="cancel" bindtap="cancel">取消</view>
+  <view class="sure" bindtap="sure">确定</view>
+</view>

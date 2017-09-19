@@ -1,0 +1,27 @@
+<view class="home_view">
+  <image class="home_img" src="{{img}}" mode="scaleToFill"/>
+</view>
+<!--点击添加日记  -->
+<view class="home_note">
+  <view class="home_note_div" bindtap="add_list">
+    <image src="{{node}}"  class="node_img" mode="aspectFit"/>
+    <view class="home_span">{{home_time}}</view>
+  </view>
+</view>
+<!--笔记列表  -->
+<view class="lists">
+  <block wx:for="{{lists}}">
+    <view class="list" bindtap="changeInfo" data-id="{{item.id}}" data-info="{{item.content}}">
+      <view class="list_left">{{item.time}}</view>
+      <view class="list_right">{{item.content}}</view>
+    </view>    
+  </block>  
+</view>
+<!--轮播  -->
+<swiper class="swiper" autoplay="true" circular="true">
+  <block wx:for="{{imgUrls}}" >
+    <swiper-item bindtap="swiper">
+      <image src="{{item}}" mode="aspectFit" />
+    </swiper-item>
+  </block>
+</swiper>

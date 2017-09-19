@@ -1,0 +1,38 @@
+page{
+  width:100%;
+  height:100%;
+}
+.addContent{
+  width:100%;
+  height:400rpx;
+}
+ .input{
+  width:90%;
+  padding:0 5% 0 5%;
+  font-size:12px;
+} 
+.button{
+  display: flex;
+  align-items:center;
+  justify-content: space-around;
+  font-size:12px;
+  /* background: #f88; */
+}
+.cancel{
+  width:100rpx;
+  height:100rpx;
+  line-height:100rpx;
+  text-align: center;
+  border-radius:100rpx;
+  border:1px solid #f88;
+  background: #f88;
+}
+.sure{
+  width:100rpx;
+  height:100rpx;
+  line-height:100rpx;
+  text-align: center;
+  border-radius:100rpx;
+  border:1px solid #bbf4e2;
+  background: #bbf4e2;
+}

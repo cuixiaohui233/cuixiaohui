@@ -1,0 +1,8 @@
+<!--logs.wxml-->
+<view class="lists">
+    <view class="list">
+      <view class="list_left">dfdf</view>
+      <view class="list_right">{{content}}</view>
+      <view class="list_change">修改</view>
+    </view> 
+</view>

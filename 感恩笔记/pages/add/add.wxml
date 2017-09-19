@@ -1,0 +1,19 @@
+<view class="lists">
+    <view class="list">
+      <view class="list_left">dfdf</view>
+      <view class="list_right">
+        <view class="text"> 记录今天值得你感恩的人和事：             
+        </view>
+        <view wx:for="{{lists}}">
+          <view class="list_info">
+             {{item.content}}
+          </view>
+        </view>
+      </view>
+         <button class="addInfo" bindtap="addInfo">+第一件事</button>
+      
+    </view>
+    <view class="addlist">
+      
+    </view> 
+</view>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var arr = [2017,5,31,12,9,30];
+			/*
+			 	2017年5月31日12时09分30秒
+			 *  2017-5-31 12:09:30
+			 *  2017/5/31 12:09:30
+			 * */
+			//num传1,是-格式，传2是/格式
+			function timeStyle(arr,num){
+				var str = '';
+				//不传num,默认年月日格式
+				num = num || 0;
+				var arr1 = ['年月日时分秒','-- :: ','// :: '];
+				for(var i=0;i<arr.length;i++){
+					str += two(arr[i])+arr1[num][i];
+				}
+				function two(n){
+					return n<10?'0'+n:''+n;
+				}
+				return str;
+			}
+			console.log(timeStyle(arr,1))
+		</script>
+	</body>
+</html>

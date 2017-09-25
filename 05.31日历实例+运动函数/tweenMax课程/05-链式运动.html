@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width:100px;
+				height:100px;
+				background-color:red;
+				margin-bottom: 10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box1"></div>
+		<div id="box2"></div>
+		<script src="js/TweenMax.min.js"></script>
+		<script>
+			var t = new TimelineMax();
+//			t.to( "#box1",1,{
+//				x : 400
+//			} )
+//			t.to( "#box2",1,{
+//				x : 400
+//			},"-=0.5" )
+//			t.to( "#box2",1,{
+//				x : 400,
+//				delay : 5
+//			} )
+			
+			t.to( "#box1",1,{
+				x : 400
+			} )
+			.to( "#box2",1,{
+				x : 400
+			} )
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+			#box{
+				width:200px;
+				height:200px;
+				background-color:red;	
+			}
+			#con{
+				width:40px;
+				height:40px;
+				background-color:green;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<div id="con"></div>
+		<script src="js/TweenMax.min.js"></script>
+		<script>
+			var t = new TimelineMax();
+			
+			t.staggerTo("#con",5,{
+//				x : 400
+				cycle : {
+					bezier : function(){
+						return [
+							{x:0,y:0},
+							{x:200,y:200},
+							{x:400,y:0},
+							{x:600,y:200}
+						]
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

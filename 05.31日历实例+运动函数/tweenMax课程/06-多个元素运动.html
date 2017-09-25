@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			div{
+				width:50px;
+				height:50px;
+				background-color:red;
+				margin-bottom: 10px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<script src="js/TweenMax.min.js"></script>
+		<script>
+			var t = new TimelineMax();
+//			t.to()
+			
+			t.staggerTo( "div",1,{
+//				x : 400,
+				
+				cycle : {
+//					x : [100,200,300],
+					x : function(i){
+//						return 200
+//						return i * 10
+						if(i<5){
+							return 500
+						}else{
+							return 1000
+						}
+						
+					}
+				}
+			},0.5 )
+		</script>
+	</body>
+</html>

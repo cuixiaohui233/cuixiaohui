@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<select name="" id="sel">
+			<option value="bj">北京</option>
+			<option value="tj">天津</option>
+			<option value="hb">河北</option>
+		</select>
+		<input type="text" name="" id="txt" value="" />
+		<script type="text/javascript">
+			/*
+			 	onchange
+			 		表单元素失焦时，内容发生改变时触发
+			 * 
+			 * */
+			var sel = document.getElementById('sel');
+			var txt = document.getElementById('txt');
+			sel.onchange = function(){
+				console.log(this.value)
+			}
+			txt.onchange = function(){
+				console.log(this.value)
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.获取时间对象，存在变量date里
+			    把date设置成18年1月
+			    获取date的日
+			
+			2.有5个div，每次div里有1，依次开始200，1加到10停止，每次间隔100，divs
+			
+		-->
+		<script type="text/javascript">
+			var date = new Date();
+			//date.setMonth(12);
+			date.setFullYear(2018);
+			date.setMonth(0);
+			console.log(date.getDate())
+			
+//			for(var i=0;i<divs.length;i++){
+//				setTimeout(function(i){
+//					var n = 1;
+//					var timer = null;
+//					timer = setInterval(function(){
+//						n++;
+//						if(n==10){
+//							clearInterval(timer);
+//						}
+//						divs[i].innerHTML = n;
+//					},100)
+//				},i*200,i)
+//			}
+
+
+			var timer = null;
+			var num = 0;
+			timer = setInterval(function(){
+				divs[num].n = 1;
+				var _this = divs[num];
+				divs[num].timer = setInterval(function(){
+					_this.n++;
+					_this.innerHTML = _this.n;
+					if(_this.n==10){
+						clearInterval(_this.timer)
+					}
+				},100);
+				num++;
+				if(num==divs.length){
+					clearInterval(timer);
+				}
+			},200)
+		</script>
+	</body>
+</html>

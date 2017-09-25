@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			/*body{
+				transform-style: preserve-3d;
+				perspective: 800px;
+			}*/
+			div{
+				width:100px;
+				height:100px;
+				background-color:red;
+			}
+		</style>
+	</head>
+	<body>
+		<div></div>
+		<script src="js/TweenMax.min.js"></script>
+		<script>
+		    var t = new TimelineMax();
+		    t.set( "div",{transformPerspective:300,transformOrigin:"left"} )
+		    t.to("div",1,{
+		    	rotationY : 45
+		    })
+		</script>
+	</body>
+</html>

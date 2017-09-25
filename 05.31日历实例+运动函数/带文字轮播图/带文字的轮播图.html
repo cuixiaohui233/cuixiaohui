@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            margin: 100px auto 0;
+            width: 520px;
+            height: 280px;
+            border: 1px solid #000000;
+            position: relative;
+            overflow: hidden;
+        }
+        #list {
+            list-style: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        li {
+            float: left;
+        }
+        img {
+            display: block;
+        }
+
+        #prev, #next {
+            position: absolute;
+            width: 30px;
+            height: 60px;
+            background: #000000;
+            color: white;
+            font-weight: bold;
+            font-size: 30px;
+            line-height: 60px;
+            text-align: center;
+            top: 110px;
+            cursor: pointer;
+        }
+        #prev {
+            left: 0;
+        }
+        #next {
+            right: 0;
+        }
+        #text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding:10px;
+            height: 50px;
+            background: rgba(0,0,0,.8);
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="box">
+        <ul id="list">
+            <li><img src="images1/1.jpg" ></li>
+            <li><img src="images1/2.jpg" ></li>
+            <li><img src="images1/3.jpg" ></li>
+            <li><img src="images1/4.jpg" ></li>
+            <li><img src="images1/5.jpg" ></li>
+        </ul>
+        <span id="prev"> < </span>
+        <span id="next"> > </span>
+        <div id="text">
+            <h3>标题一</h3>
+            <p>内容一</p>
+        </div>
+    </div>
+    <script src="Mtween.js"></script>
+    <script>
+        /*
+         	文字下移->图片切换->文字上移
+         * */
+        var box = document.getElementById('box');
+        var list = document.getElementById('list');
+        var prev = document.getElementById('prev');
+        var next = document.getElementById('next');
+        var text = document.getElementById('text');
+        var title = text.getElementsByTagName('h3')[0];
+        var content = text.getElementsByTagName('p')[0];
+        var arr = [
+         	{
+	        	title:'标题一',
+	        	content:'内容一'
+        	},
+        	{
+	        	title:'标题二',
+	        	content:'内容二'
+        	},
+        	{
+	        	title:'标题三',
+	        	content:'内容三'
+        	},
+        	{
+	        	title:'标题四',
+	        	content:'内容四'
+        	}
+        ];
+        //给的图片个数不固定，所以需要js动态计算父级ul的宽度
+        list.style.width = arr.length*520+'px';
+        var n = 0;
+        var onOff = true;
+        var timer = null;
+        next.onclick = function(){
+        	if(onOff){
+        		onOff = false;
+        		n++;
+	        	if(n>arr.length-1){
+	        		n = 0;
+	        	}
+	        	tab();	
+        	} 	
+        }
+        prev.onclick = function(){
+        	if(onOff){
+        		onOff = false;
+        		n--;
+	        	if(n<0){
+	        		n = arr.length-1;
+	        	}
+	        	tab();
+        	}
+        	
+        }
+        timer = setInterval(next.onclick,2200)
+        function tab(){
+        	//先文字下移
+        	move({
+        		obj:text,
+        		attrs:{bottom:-70},
+        		duration:500,
+        		callBack:function(){
+        			//图片左移
+        			move({
+        				obj:list,
+        				attrs:{left:-n*520},
+        				duration:1000,
+        				callBack:function(){
+        					//文字上移
+        					title.innerHTML = arr[n].title;
+        					content.innerHTML = arr[n].content;
+        					move({
+        						obj:text,
+				        		attrs:{bottom:0},
+				        		duration:500,
+				        		callBack:function(){
+				        			onOff = true;
+				        		}
+        					})
+        				}
+        			})
+        		}
+        	})
+        }
+    </script>
+</body>
+</html>

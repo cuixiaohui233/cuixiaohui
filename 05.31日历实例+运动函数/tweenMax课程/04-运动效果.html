@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			#box{
+				width:100px;
+				height:100px;
+				background-color:red;
+				position: absolute;
+				left: 0px;
+				top: 0px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+		<script src="js/TweenMax.min.js"></script>
+		<script>
+			var t = new TimelineMax();
+			
+//			t.to( "#box",2,{
+//				x : 400,
+//				ease : Linear.easeIn 
+//			} )
+			
+			
+//			t.set( "#box",{
+//				x : 400,
+//			} )
+			
+			
+			t.to( "#box",2,{
+				
+				//x : 400,
+				y : 400,
+//				ease : Linear.easeIn ,
+//				ease : Linear.easeOut ,
+//				ease : Linear.easeInOut ,
+//
+//				
+//				ease : Back.easeIn ,
+//				ease : Back.easeOut ,
+//				ease : Back.easeInOut ,
+//
+//				
+//				ease : Bounce.easeIn ,
+				ease : Bounce.easeOut ,
+//				ease : Bounce.easeInOut ,
+
+			} )
+		</script>
+	</body>
+</html>

@@ -1,0 +1,143 @@
+.title-box{
+	width: 1200px;
+	height: 2351px;
+	margin: auto;
+/*	border: 1px solid red;*/
+}
+.year-box{
+	width: 910px;
+	height: 125px;
+/*	border:1px solid red;*/
+	margin-top: 62px;
+}
+.year-box ul h2{
+	font-size: 28px;
+	margin-top: -15px;
+}
+.year-box ul li{
+	float: left;
+	margin-top: 59px;
+	margin-left: 12px;
+}
+.year-box img{
+	width: 18px;
+	height: 18px;
+}
+.year-right ul li{
+	float: right;
+}
+.year-right ul a{
+	text-align: center;
+    font-size: 18px;
+    display: block;
+    line-height: 42px;
+	margin-top: -21px;
+    color: #fff;
+    border-radius: 3px;
+}
+.year-right img{
+	border:1px solid #ffffff;
+	width: 18px;
+	height: 18px;
+}
+.year-right ul .tu{
+	width: 40px;
+	height: 40px;
+	background: #fff;
+}
+.year-right ul li span{
+	color:  #B5A176;
+}
+.num-box{
+	width: 910px;
+	height: 40px;
+	background:#F4F0EA; 
+}
+.num-box ul li{
+	float: left;
+	line-height: 40px; 
+	margin-left: 20px;
+	letter-spacing:2px;
+}
+
+/*外层大盒子*/
+.big-box{
+	width: 910px;
+	height: 2002px;
+	border: 1px solid #fff;
+	margin-top: 10px;
+	background: #FFFFFF;
+}
+/*中间小盒子*/
+.small-box{
+	width: 854px;
+	height: 1916px;
+	margin: 28px auto;
+}
+/*拓展工具箱*/
+.page_right{
+	float: right;
+}
+.right_container_tools .bar {
+    text-align: center;
+    line-height: 42px;
+    font-size: 16px;
+    /*position: fixed;*/
+    top: 188px;
+    z-index: 100;
+    background: #fff;
+    width: 270px;
+    height: 43px;
+}
+.layui-side .fa{
+	color: #B5A176;
+	margin-left: 30px;
+}
+/*相关页面*/
+.related{
+	width: 100%;
+	height: 670px;
+	border: 1px solid #fff;
+}
+.related .related-box{
+	width: 910px;
+	height: 50px;
+	background: #F4F0EA;
+	margin-top: 40px;
+}
+.related-box ul li span{
+	float: left;
+	font-size: 20px;
+	line-height: 50px;
+	padding-left: 20px;
+}
+.related-box ul li a{
+	float: right;
+	font-size: 16px;
+	line-height: 60px;
+}
+.xiang-box{
+	width: 910px;
+	height: 450px;
+	margin-top: 40px;
+
+}
+/*扩展工具箱*/
+.layui-side{
+	position: relative;
+	/*top:100px;*/
+	/*background: red;*/
+}
+.page_right{
+	top:-39px;
+}
+.Hold-all{
+	position:static;
+}
+.layui-bg-gray{
+	background-color: #edeef0!important;
+}
+.layui-nav-tree{
+	background: #fff;
+	margin-top:1px;
+}

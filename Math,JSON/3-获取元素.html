@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box"></div>
+		<ul>
+			<li class="abc"></li>
+			<li class="abc"></li>
+			<li class="abc"></li>
+		</ul>
+		<ul id="ul">
+			<li class="abc"></li>
+			<li class="abc"></li>
+			<li class="abc"></li>
+		</ul>
+		<script type="text/javascript">
+			/*
+			 	'#box'
+			 	'.active'
+			 	'div'
+			 	document,元素
+			 * 
+			 * */
+			function getEle(name,parent){
+				var t = name.substr(0,1);
+				var s = name.substr(1);
+				//不传第二个参数，默认从document下获取元素
+				parent = parent || document;
+				//console.log(t)
+				if(t=='#'){
+					return document.getElementById(s);
+				}else if(t=='.'){
+					return parent.getElementsByClassName(s);
+				}else{
+					return parent.getElementsByTagName(name);
+				}
+			}
+			var ul = getEle('#ul');
+			//console.log(getEle('.abc',ul))
+			console.log(getEle('li',ul))
+		</script>
+	</body>
+</html>

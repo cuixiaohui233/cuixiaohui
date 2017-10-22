@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" />
+		<input type="button" value="开始"/>
+		<input type="button" value="确认"/>
+		<script type="text/javascript">
+			var inps = document.getElementsByTagName('input');
+			var zd = -1;
+			var max = 100;
+			var min = 0;
+			inps[1].onclick = function(){
+				zd = Math.round(Math.random()*100);
+				console.log(zd)
+			}
+			inps[2].onclick = function(){
+				//console.log(zd)
+				var val = inps[0].value;
+				if(val>zd){
+					max = val;
+				}
+				if(val<zd){
+					min = val;
+				}
+				if(val==zd){
+					alert('炸了');
+					return;
+				}
+				alert(min+'~'+max);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+a{
+    text-decoration: none;
+}
+ul{
+    margin: 0;
+    padding: 0;
+}
+input{
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+
+    #box{
+        width: 500px;
+        height: 500px;
+        background-color: blue;
+        position: relative;
+    }
+    #content{
+        position: absolute;
+        top:50px;
+        left: 30px;
+        background-color: white;
+        width: 400px;
+        color:black;
+        font-weight: bold;
+    }
+    #open{
+        position: absolute;
+        top:35px;
+        right: 10px;
+        text-align: center;
+    }
+    #open a{
+        display: block;
+        width: 50px;
+        line-height: 30px;
+    }
+    #open>a{
+        background-color: #ccc;   
+        color: white; 
+    }
+    #open li a{
+
+        background-color: #C0C0C0;
+        color:black;
+    }
+    #open li a:hover{
+        background-color: #E76308;
+        color: white;
+    }
+    #fun{
+        position: absolute;
+        bottom: 20px;
+        left: 28px;
+        border: 5px solid #E71063;
+        width: 400px;
+        background-color: #E7E7B5;
+
+    }
+    #fun .btns{
+        width: 370px;
+        margin: 0 auto;
+        height: 50px;
+        border-bottom: 2px solid #E73100;
+
+    }
+    #fun .btns a{
+        float: left;
+        width: 70px;
+        line-height: 30px;
+        text-align: center;
+        background-color: #E7E7B5;
+        color: black;
+        margin-top: 20px;
+    }
+    #fun .btns .active{
+        background-color: #E73100;
+        color: white;
+    }
+    #search,#replace{
+        height: 30px;
+        padding: 20px;
+        display: none;
+    }
+    #fun input{
+        height: 25px;
+        width: 140px;
+    }
+    #fun input:focus{
+        outline-color: #E73100; 
+    } 
+    #fun input[type="button"]{
+        width: 50px;
+        height: 30px;
+    }
+    span{
+        background-color: #FFFF00;
+    }
+    b{
+        background-color: #fff;
+    }
+    #open ul .active{
+        background-color: #E73100;
+        color: white;
+    }
+</style>
+</head>
+<body>
+<div id="box">
+    <div id="content">
+        目前主要针对的是javascript培训，同时还提供了css教程、javascript视频、js特效等，最新推出了外地学员们喜欢的javascript网络课程服务，同时还为处于javascript入门阶段的朋友录制了大量javascript视频，其中涉及了大量javascript基础知识，希望妙味课堂推出的javascript网络培训课程能带给大家更多惊喜。目前主要针对的是javascript培训，同时还提供了css教程、javascript视频、js特效等，最新推出了外地学员们喜欢的javascript网络课程服务，同时还为处于javascript入门阶段的朋友录制了大量javascript视频，其中涉及了大量javascript基础知识，希望妙味课堂推出的javascript网络培训课程能带给大家更多惊喜。目前主要针对的是javascript培训，
+    </div>
+    <div id="open">
+        <a href="javascript:;">展开</a>
+        <ul style="display: none;">
+            <li><a href="javascript:;">查找</a></li>
+            <li><a href="javascript:;">替换</a></li>
+        </ul>
+    </div>
+    <div id="fun" style="display: none;">
+        <div class="btns">
+            <a href="javascript:;" class="active">查找</a>
+            <a href="javascript:;">替换</a>
+        </div>
+
+        <div id="search" style="display: block;" >
+            <input type="text"/>
+            <input type="button" value="查找"/>
+        </div>
+        <div id="replace">
+            <input type="text"/>
+            <input type="text"/>
+            <input type="button" value="替换"/>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
+<script type="text/javascript">
+	var open = document.getElementById('open');
+    var btn = open.getElementsByTagName('a')[0];//z展开按钮
+    var ul = open.getElementsByTagName('ul')[0];
+    var cha = ul.getElementsByTagName('a')[0];//查找按钮
+    var huan = ul.getElementsByTagName('a')[1];//替换按钮
+    // console.log(btn);
+    var open = document.getElementById('open');
+    var search = document.getElementById('search');//搜索功能
+    var txtcha = search.getElementsByTagName('input')[0];//查找的文本框
+    var btncha = search.getElementsByTagName('input')[1];//查找的按钮
+    var replace = document.getElementById('replace');//查找功能
+    var huanq = replace.getElementsByTagName('input')[0];//替换的文本框1
+    var huanh = replace.getElementsByTagName('input')[1];//替换的文本框2
+    var btnhuan = replace.getElementsByTagName('input')[2];//替换的按钮
+    var chal = document.getElementById('fun').getElementsByTagName('a')[0];
+    var huanl = document.getElementById('fun').getElementsByTagName('a')[1];
+    var content =  document.getElementById('content');
+    //console.log(huanl);
+    //var off = null;//功能开关
+    var onOff = true;
+    var txt = content.innerHTML;
+    btn.onclick = function(){
+        if(onOff){
+            onOff = false;
+            cha.onclick = function(){
+                //off = true;
+                fun.style.display = 'block';
+                ul.style.display = 'none';
+                search.style.display = 'block';
+                replace.style.display = 'none';
+                chal.className = 'active';
+                huanl.className = '';
+                tab();
+                bianhua();
+                onOff = true;
+            }
+            huan.onclick = function(){
+                //off = true;
+                fun.style.display = 'block';
+                ul.style.display = 'none';
+                search.style.display = 'none';
+                replace.style.display = 'block';
+                chal.className = '';
+                huanl.className = 'active';
+                tab();
+                bianhua();
+                onOff = true;
+            }
+            ul.style.display = 'block';
+        }else{
+                onOff = true;
+                ul.style.display = 'none';
+            }
+        function tab(){
+            chal.onclick = function(){
+                search.style.display = 'block';
+                replace.style.display = 'none';
+                this.className = 'active';
+                huanl.className = '';
+            }
+            huanl.onclick = function(){
+                search.style.display = '';
+                replace.style.display = 'block';
+                chal.className = '';
+                this.className = 'active';
+                content.innerHTML = txt;
+                txtcha.value = '';
+            }
+        }
+        function bianhua(){
+            btncha.onclick = function(){
+                //console.log(txtcha);
+                var t = txtcha.value;
+                content.innerHTML = txt;
+               if(t == 0){
+                    alert('请您输入要查找的字符！');
+                }else if(txt.includes(t)){
+                    //console.log(txt.split(t).join('<span>t<span>'));
+                    content.innerHTML =  txt.split(t).join('<span>'+t+'</span>');
+                }else{
+                    alert('没有您要超查找的字符');
+                }
+            }
+            btnhuan.onclick = function(){
+                //console.log(txtcha);
+                var t1 = huanq.value;
+                var t2 = huanh.value
+                var txt = content.innerHTML;
+                //console.log(t);
+               if(t1 == 0 && t2 == 0){
+                    alert('请您输入要查找的字符！');
+                }else if(txt.includes(t1)){
+                    //console.log(txt.split(t).join('<span>t<span>'));
+                   content.innerHTML =  txt.split(t1).join(t2);
+                }else{
+                    alert('没有您要超查找的字符');
+                }
+            }
+        }
+    }
+</script>

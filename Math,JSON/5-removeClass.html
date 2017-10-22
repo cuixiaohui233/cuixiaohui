@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" class="a b c"></div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			function removeClass(obj,name){
+				var arr = obj.className.split(' ');
+				var onOff = false;
+				var arr1 = [];
+				//console.log(arr)
+				for(var i=0;i<arr.length;i++){
+					if(arr[i]==name){
+						onOff = true;
+						continue;
+					}
+					arr1.push(arr[i]);	
+				}
+				//console.log(arr1)
+				if(onOff){
+					obj.className = arr1.join(' ');
+				}
+			}
+			removeClass(box,'a')
+		</script>
+	</body>
+</html>

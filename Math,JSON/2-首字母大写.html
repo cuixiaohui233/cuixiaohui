@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var str = 'are you ok';
+			//用split('空格')拆分出单词
+			var arr = str.split(' ');
+			for(var i=0;i<arr.length;i++){
+				//字符串不能只改其中某个字符，需要把首字母大写拼接后边的字符，整个赋值修改原来的单词
+				arr[i] = arr[i][0].toUpperCase()+arr[i].substr(1);
+			}
+			//改好每个单词后，用join('空格')拼成完整字符串
+			console.log(arr.join(' '))
+		</script>
+	</body>
+</html>

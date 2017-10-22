@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" class="a b c"></div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			//H5新增classList，对象，里边存有class信息和方法
+			/*
+				添加 add('class名')，没有就加，有不会重复添加
+				删除 remove('class名'),有就删，没有就不删
+				是否有contains('class名'),有返回true，没有返回false
+				有就删，没有就加toggle('class名')
+			 * 
+			 * 	*/
+			//box.classList.add('a');
+			//box.classList.remove('a');
+			box.classList.toggle('d')
+			console.log(box.classList.contains('a'))
+			console.log(box.classList)
+		</script>
+	</body>
+</html>

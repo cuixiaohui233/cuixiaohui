@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			/*
+			 	JSON
+			 	JavaScript Object Notation
+			 		数据交换格式
+			 		长得像对象的字符串
+			 		两种规格'{}','[]'
+			 		属性名必须是双引号
+			 		不能写undefined
+			 		
+			 		字符串必须双引号
+			 		数字,布尔值，null,对象
+			 		
+			 		
+			 		
+			 		JSON.parse()
+			 			JSON字符串转对象
+			 		JSON.stringify()
+			 * 			对象转JSON字符串
+			 * */
+			var obj3 = {
+				name:'小红',
+				age:18,
+				a:undefined
+			}
+			var obj = '{"name":"小红","age":18,"marry":false,"info":null}';
+			var obj2 = `{
+				"name":"小红",
+				"age":18,
+				"marry":false,
+				"info":null
+			}`;
+			console.log(JSON)
+			console.log(JSON.parse(obj).name)
+			//console.log(obj2)
+			console.log(JSON.stringify(obj3))
+			Math.max(4,4,3,2,1);
+			console.log(Math.max(4,4,3,2,1));
+		</script>
+	</body>
+</html>

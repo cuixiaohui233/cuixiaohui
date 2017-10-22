@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box" class="aaa aac"></div>
+		<script type="text/javascript">
+			var box = document.getElementById('box');
+			function addClass(obj,name){
+				var s = obj.className;
+				//'aaa abc'
+				if(s==''){
+					//没有class,直接添加
+					obj.className = name;
+				}else{
+					//有class，没有重名，就添加
+					//拆出每个class名
+					var arr = s.split(' ');
+					//console.log(arr)
+					//判断是否有重名
+					for(var i=0;i<arr.length;i++){
+						//如果有重名，执行return，不会执行下面的obj.className += ' '+name;
+						if(arr[i]==name){
+							return;
+						}
+					}
+					//如果没有重名，就执行这里
+					obj.className += ' '+name;	
+				}
+			}
+			addClass(box,'abc')
+		</script>
+	</body>
+</html>

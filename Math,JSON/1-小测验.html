@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<!--
+			1.str里有没有'ab'
+				str.includes('ab')
+				str.indexOf('ab')!=-1
+			2.'miaov',ao截取出来
+				'miaov'.slice(2,4)
+				'miaov'.substr(2,2)
+				'miaov'.substring(2,4)
+			3.'MIao'，变成小写
+				'MIao'.toLowerCase()
+			4.var str='name=leo&age=18&job=boss'
+			var arr = str.split('&');
+		//	['name=leo','age=18','job=boss'];
+			var obj = {};
+			for(var i=0,len=arr.length;i<len;i++){
+				var s = arr[i].split('=');
+				['name','leo']
+				obj[s[0]]=s[1];
+			}
+			
+			5.封函数，传入字符串，目标字符，返回目标字符在字符串中出现过几次
+			
+			function fn(str,target){
+				var n = 0;
+				//1
+				for(var i=0;str.indexOf(target,i)!=-1;i=str.indexOf(target,i)+target.length){
+					n++;
+				}
+				//2
+				n=str.split(target).length-1;
+				return n;
+			}
+		-->
+		<script type="text/javascript">
+			var str='name=leo&age=18&job=boss';
+			var arr = str.split('&');
+			var obj = {};
+//			for(var i=0,len=arr.length;i<len;i++){
+//				var s = arr[i].split('=');
+//				obj[s[0]]=s[1];
+//			}
+			for(var k in arr){
+				var s = arr[k].split('=');
+				obj[s[0]]=s[1];
+			}
+			console.log(obj)
+		</script>
+	</body>
+</html>
